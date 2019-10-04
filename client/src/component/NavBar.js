@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDarkMode } from '../hooks/useDarkMode';
-import Graph from "./Graph"
+// import Graph from "./Graph"
 
 const NavBar = () => {
   const [darkMode, setDarkMode] = useDarkMode();
