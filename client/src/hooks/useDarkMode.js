@@ -7,6 +7,7 @@ export const useDarkMode = () => {
       e.preventDefault();
       setDarkMode(!darkMode);
     };
+    
   useEffect (()=>{
 
     if (darkMode==true){
