@@ -3,15 +3,14 @@ import "./App.css";
 import ContentTable from "./component/ContentTable";
 import NavBar from "./component/NavBar";
 import axios from "axios";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router,Route } from "react-router-dom";
+import Graph from "./component/Graph";
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+  
+    state = {
       players: []
-    };
-  }
+    }
 
   componentDidMount() {
     axios
@@ -28,9 +27,6 @@ class App extends React.Component {
         this.setState({
           players: result
         });
-        {
-          console.log(this.state.players);
-        }
       })
       .catch(error => {
         console.log(error, "No data recieve");
@@ -41,7 +37,10 @@ class App extends React.Component {
       <div className="App">
         <Router>
         <NavBar />
-        <ContentTable players={this.state.players} />
+        
+        <Route exact path="/" render={()=>(<ContentTable players={this.state.players}/>)}  />
+        <Route exact path="/graph" render={()=>(<Graph players={this.state.players}/>)}  />
+        {/* <Route exact path="/graph" component={Graph}/> */}
         </Router>
       </div>
     );
