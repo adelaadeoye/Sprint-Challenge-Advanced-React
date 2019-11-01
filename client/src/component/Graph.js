@@ -9,7 +9,7 @@ class Graph extends React.Component {
       datasets: [
         {
           label: "% of Votes",
-          data: [12, 19, 3, 5, 2, 3],
+          data: [this.props.players.searches],
           
           backgroundColor: [
             "rgba(255, 134,159,0.4)",
@@ -63,6 +63,8 @@ class Graph extends React.Component {
   render() {
     return (
       <MDBContainer>
+              {console.log(this.props.players[0])}
+
         <h3 className="mt-5">Bar chart</h3>
         <Bar data={this.state.dataBar} options={this.state.barChartOptions} />
       </MDBContainer>
